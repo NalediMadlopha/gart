@@ -3,4 +3,9 @@
     <string name="app_name">Gart</string>
     <string name="no_repositories_found">No repositories found</string>
 
+    <string name="repository_stars_label">STARS</string>
+    <string name="repository_forks_label">FORKS</string>
+    <string name="repository_issues_label">ISSUES</string>
+    <string name="repository_watchers_label">WATCHERS</string>
+
 </resources>
