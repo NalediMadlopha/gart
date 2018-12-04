@@ -9,4 +9,7 @@
     <color name="colorSecondaryLight">#00B0FF</color>
     <color name="colorSecondaryLark">#0091EA</color>
 
+    <color name="blackAlpha30">#4d000000</color>
+    <color name="darkGrey">#666666</color>
+    <color name="lightGrey">#f6f7f8</color>
 </resources>
