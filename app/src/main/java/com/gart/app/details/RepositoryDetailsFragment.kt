@@ -14,5 +14,4 @@ class RepositoryDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.repository_details_fragment, container, false)
     }
 
-
 }

@@ -1,14 +1,17 @@
 apply plugin: 'com.android.library'
 
-android {
-    compileSdkVersion 28
+apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion compile_sdk_version
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName version_name
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -25,4 +28,9 @@ android {
 
 dependencies {
     implementation project(':core')
+
+    testImplementation "org.mockito:mockito-core:$test_mockito_version"
+    testImplementation "junit:junit:$test_junit_version"
+    testImplementation "org.hamcrest:hamcrest-all:$test_hamcrest_version"
+    testImplementation "org.robolectric:robolectric:$test_robolectric_version"
 }
