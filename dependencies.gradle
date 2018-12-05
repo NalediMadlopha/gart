@@ -13,10 +13,12 @@ ext {
     /* Libraries */
     kotlinVersion = '1.3.10'
     coreKotlin = '1.0.1'
+    appCompat = '1.0.2'
     constraintlayoutVersion = '1.1.3'
-    materialVerion = '1.0.0'
+    materialVersion = '1.0.0'
     recyclerViewVersion = '1.0.0'
     daggerVersion = '2.16'
+    lifecycleVersion = '2.0.0'
     roomVersion = '2.0.0'
     retrofitVersion = '2.5.0'
     androidAnnotationsVersion = '21.0.3'
@@ -30,32 +32,32 @@ ext {
     espressoVersion = '3.1.0'
     testingSupportLibVersion = '0.1'
     mockitoAndroidVersion = '2.23.4'
-    androidSupportRunnerVersion = '1.0.0'
-    androidSupportRulesVersion = '1.0.0'
     runnerVersion = '1.1.0'
 
     mobileUiDependencies = [
-        kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
-        coreKotlinX:        "androidx.core:core-ktx:${coreKotlin}",
-        constraintLayout:   "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
-        material: "com.google.android.material:material:$materialVerion",
-        daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
-        dagger:             "com.google.dagger:dagger:${daggerVersion}",
-        daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVersion}",
-        daggerProcessor:    "com.google.dagger:dagger-android-processor:${daggerVersion}",
-        roomRuntime:        "android.arch.persistence.room:runtime:${roomVersion}",
-        roomCompiler:       "android.arch.persistence.room:compiler:${roomVersion}"
+        kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+        coreKotlinX:            "androidx.core:core-ktx:${coreKotlin}",
+        constraintLayout:       "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
+        material:               "com.google.android.material:material:$materialVersion",
+        dagger:                 "com.google.dagger:dagger:${daggerVersion}",
+        daggerCompiler:         "com.google.dagger:dagger-compiler:${daggerVersion}",
+        daggerSupport:          "com.google.dagger:dagger-android-support:${daggerVersion}",
+        daggerProcessor:        "com.google.dagger:dagger-android-processor:${daggerVersion}",
+        lifeCycleExtensions:    "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
+        lifeCycleCompiler:      "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
+        roomRuntime:            "android.arch.persistence.room:runtime:${roomVersion}",
+        roomCompiler:           "android.arch.persistence.room:compiler:${roomVersion}"
     ]
 
     mobileUiTestDependencies = [
-        junit:              "junit:junit:${jUnitVersion}",
-        kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
-        mockito:            "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
-        mockitoAndroid:     "org.mockito:mockito-android:${mockitoAndroidVersion}",
-        espressoCore:       "com.android.support.test.espresso:espresso-core:${espressoVersion}",
-        espressoIntents:    "com.android.support.test.espresso:espresso-intents:${espressoVersion}",
-        espressoContrib:    "com.android.support.test.espresso:espresso-contrib:${espressoVersion}",
-        hamcrest:           "org.hamcrest:hamcrest-all:${hamcrestVersion}",
-        robolectric:        "org.robolectric:robolectric:${robolectricVersion}"
+        junit:                  "junit:junit:${jUnitVersion}",
+        kotlinJUnit:            "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+        mockito:                "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
+        mockitoAndroid:         "org.mockito:mockito-android:${mockitoAndroidVersion}",
+        espressoCore:           "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+        espressoIntents:        "com.android.support.test.espresso:espresso-intents:${espressoVersion}",
+        espressoContrib:        "com.android.support.test.espresso:espresso-contrib:${espressoVersion}",
+        hamcrest:               "org.hamcrest:hamcrest-all:${hamcrestVersion}",
+        robolectric:            "org.robolectric:robolectric:${robolectricVersion}"
     ]
 }
