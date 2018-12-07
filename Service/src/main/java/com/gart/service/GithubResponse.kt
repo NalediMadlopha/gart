@@ -1,4 +1,4 @@
-package com.gart.core.services
+package com.gart.service
 
 import com.google.gson.annotations.SerializedName
 

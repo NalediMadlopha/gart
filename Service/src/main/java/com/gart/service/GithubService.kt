@@ -1,4 +1,4 @@
-package com.gart.core.services
+package com.gart.service
 
 import retrofit2.Call
 import retrofit2.http.GET
