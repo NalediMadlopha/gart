@@ -63,8 +63,8 @@ ext {
 
     serviceDependencies = [
         kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
-        retrofit:  "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-        retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+        retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+        retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
     ]
 
 }
