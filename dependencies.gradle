@@ -60,4 +60,10 @@ ext {
         hamcrest:               "org.hamcrest:hamcrest-all:${hamcrestVersion}",
         robolectric:            "org.robolectric:robolectric:${robolectricVersion}"
     ]
+
+    serviceDependencies = [
+        retrofit =  "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+        retrofitConverter = "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    ]
+
 }
