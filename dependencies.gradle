@@ -9,6 +9,8 @@ ext {
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 28
     androidCompileSdkVersion = 28
+    versionCode = 1
+    versionName = "1.0"
 
     /* Libraries */
     kotlinVersion = '1.3.10'
@@ -51,9 +53,7 @@ ext {
 
     mobileUiTestDependencies = [
         junit:                  "junit:junit:${jUnitVersion}",
-        kotlinJUnit:            "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
         mockito:                "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
-        mockitoAndroid:         "org.mockito:mockito-android:${mockitoAndroidVersion}",
         espressoCore:           "com.android.support.test.espresso:espresso-core:${espressoVersion}",
         espressoIntents:        "com.android.support.test.espresso:espresso-intents:${espressoVersion}",
         espressoContrib:        "com.android.support.test.espresso:espresso-contrib:${espressoVersion}",
@@ -65,6 +65,18 @@ ext {
         kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
         retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
         retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    ]
+
+    dataDependencies = [
+        kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+        room:                   "androidx.room:room-runtime:${roomVersion}",
+        roomCompiler:           "androidx.room:room-compiler:${roomVersion}"
+    ]
+
+    dataTestDependencies = [
+        junit:                  "junit:junit:${jUnitVersion}",
+        mockito:                "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
+        hamcrest:               "org.hamcrest:hamcrest-all:${hamcrestVersion}"
     ]
 
 }

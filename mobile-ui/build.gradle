@@ -13,8 +13,8 @@ android {
         applicationId "com.gart.app"
         minSdkVersion globalConfiguration["androidMinSdkVersion"]
         targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
-        versionCode version_code
-        versionName version_name
+        versionCode globalConfiguration["versionCode"]
+        versionName globalConfiguration["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -57,9 +57,6 @@ android {
 }
 
 dependencies {
-    def mobileUiDependencies = rootProject.ext.mobileUiDependencies
-    def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
-
     implementation project(':common')
 
     implementation mobileUiDependencies.kotlin
@@ -72,12 +69,8 @@ dependencies {
     kapt mobileUiDependencies.daggerCompiler
     implementation mobileUiDependencies.daggerSupport
     kapt mobileUiDependencies.daggerProcessor
-    implementation mobileUiDependencies.roomRuntime
-    kapt mobileUiDependencies.roomCompiler
 
-    testImplementation mobileUiTestDependencies.kotlinJUnit
-
-    androidTestImplementation mobileUiTestDependencies.junit
-    androidTestImplementation mobileUiTestDependencies.mockito
-    androidTestImplementation mobileUiTestDependencies.mockitoAndroid
+    testImplementation mobileUiTestDependencies.junit
+    testImplementation mobileUiTestDependencies.mockito
+    testImplementation mobileUiTestDependencies.hamcrest
 }
