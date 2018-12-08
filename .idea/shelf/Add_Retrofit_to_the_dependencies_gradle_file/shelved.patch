@@ -1,0 +1,21 @@
+Index: dependencies.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>allprojects {\n    repositories {\n        jcenter()\n    }\n}\n\next {\n    /* Android */\n    androidMinSdkVersion = 21\n    androidTargetSdkVersion = 28\n    androidCompileSdkVersion = 28\n\n    /* Libraries */\n    kotlinVersion = '1.3.10'\n    coreKotlin = '1.0.1'\n    appCompat = '1.0.2'\n    constraintlayoutVersion = '1.1.3'\n    materialVersion = '1.0.0'\n    recyclerViewVersion = '1.0.0'\n    daggerVersion = '2.16'\n    lifecycleVersion = '2.0.0'\n    roomVersion = '2.0.0'\n    retrofitVersion = '2.5.0'\n    androidAnnotationsVersion = '21.0.3'\n\n    /* Testing */\n    jUnitVersion = '4.12'\n    mockitoKotlinVersion = '1.5.0'\n    robolectricVersion = '4.0.2'\n    hamcrestVersion = '1.3'\n    mockitoVersion = '2.23.4'\n    espressoVersion = '3.1.0'\n    testingSupportLibVersion = '0.1'\n    mockitoAndroidVersion = '2.23.4'\n    runnerVersion = '1.1.0'\n\n    mobileUiDependencies = [\n        kotlin:                 \"org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}\",\n        coreKotlinX:            \"androidx.core:core-ktx:${coreKotlin}\",\n        constraintLayout:       \"androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}\",\n        material:               \"com.google.android.material:material:$materialVersion\",\n        dagger:                 \"com.google.dagger:dagger:${daggerVersion}\",\n        daggerCompiler:         \"com.google.dagger:dagger-compiler:${daggerVersion}\",\n        daggerSupport:          \"com.google.dagger:dagger-android-support:${daggerVersion}\",\n        daggerProcessor:        \"com.google.dagger:dagger-android-processor:${daggerVersion}\",\n        lifeCycleExtensions:    \"androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}\",\n        lifeCycleCompiler:      \"androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}\",\n        roomRuntime:            \"android.arch.persistence.room:runtime:${roomVersion}\",\n        roomCompiler:           \"android.arch.persistence.room:compiler:${roomVersion}\"\n    ]\n\n    mobileUiTestDependencies = [\n        junit:                  \"junit:junit:${jUnitVersion}\",\n        kotlinJUnit:            \"org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}\",\n        mockito:                \"com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}\",\n        mockitoAndroid:         \"org.mockito:mockito-android:${mockitoAndroidVersion}\",\n        espressoCore:           \"com.android.support.test.espresso:espresso-core:${espressoVersion}\",\n        espressoIntents:        \"com.android.support.test.espresso:espresso-intents:${espressoVersion}\",\n        espressoContrib:        \"com.android.support.test.espresso:espresso-contrib:${espressoVersion}\",\n        hamcrest:               \"org.hamcrest:hamcrest-all:${hamcrestVersion}\",\n        robolectric:            \"org.robolectric:robolectric:${robolectricVersion}\"\n    ]\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- dependencies.gradle	(revision ef7c6a60369ecca7464410c5ee5b8b90b6c2ff7e)
++++ dependencies.gradle	(date 1544164976000)
+@@ -60,4 +60,10 @@
+         hamcrest:               "org.hamcrest:hamcrest-all:${hamcrestVersion}",
+         robolectric:            "org.robolectric:robolectric:${robolectricVersion}"
+     ]
++
++    remoteDependencies = [
++        retrofit =  "com.squareup.retrofit2:retrofit:${retrofitVersion}",
++        retrofitConverter = "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
++    ]
++
+ }
+\ No newline at end of file

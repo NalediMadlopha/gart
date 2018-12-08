@@ -1,0 +1,20 @@
+Index: core/src/main/java/com/gart/core/services/GithubResponse.kt
+===================================================================
+--- core/src/main/java/com/gart/core/services/GithubResponse.kt	(revision ef7c6a60369ecca7464410c5ee5b8b90b6c2ff7e)
++++ service/src/main/java/com/gart/service/GithubResponse.kt	(date 1544165647000)
+@@ -1,4 +1,4 @@
+-package com.gart.core.services
++package com.gart.service
+ 
+ import com.google.gson.annotations.SerializedName
+ 
+Index: core/src/main/java/com/gart/core/services/GithubService.kt
+===================================================================
+--- core/src/main/java/com/gart/core/services/GithubService.kt	(revision ef7c6a60369ecca7464410c5ee5b8b90b6c2ff7e)
++++ service/src/main/java/com/gart/service/GithubService.kt	(date 1544165647000)
+@@ -1,4 +1,4 @@
+-package com.gart.core.services
++package com.gart.service
+ 
+ import retrofit2.Call
+ import retrofit2.http.GET

@@ -1,0 +1,20 @@
+Index: service/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- service/build.gradle	(date 1544169253000)
++++ service/build.gradle	(date 1544169253000)
+@@ -0,0 +1,11 @@
++apply plugin: 'kotlin'
++
++sourceCompatibility = "8"
++targetCompatibility = "8"
++
++dependencies {
++    implementation fileTree(dir: 'libs', include: ['*.jar'])
++
++    implementation retrofit
++    implementation retrofitConverter
++}
+\ No newline at end of file

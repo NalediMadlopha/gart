@@ -1,0 +1,46 @@
+Index: data/src/androidTest/java/com/gart/data/GartDatabaseTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- data/src/androidTest/java/com/gart/data/GartDatabaseTest.kt	(date 1544274379000)
++++ data/src/androidTest/java/com/gart/data/GartDatabaseTest.kt	(date 1544274379000)
+@@ -0,0 +1,22 @@
++package com.gart.data
++
++import android.content.Context
++import androidx.test.core.app.ApplicationProvider
++import androidx.test.ext.junit.runners.AndroidJUnit4
++import org.junit.After
++import org.junit.Before
++import org.junit.runner.RunWith
++
++@RunWith(AndroidJUnit4::class)
++class GartDatabaseTest {
++
++    @Before
++    fun setUp() {
++        val context = ApplicationProvider.getApplicationContext<Context>()
++    }
++
++    @After
++    fun tearDown() {
++    }
++
++}
+\ No newline at end of file
+Index: data/src/main/java/com/gart/data/GartDatabase.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- data/src/main/java/com/gart/data/GartDatabase.kt	(date 1544182399000)
++++ data/src/main/java/com/gart/data/GartDatabase.kt	(date 1544182399000)
+@@ -0,0 +1,6 @@
++package com.gart.data
++
++import androidx.room.RoomDatabase
++
++abstract class GartDatabase : RoomDatabase() {
++}
+\ No newline at end of file

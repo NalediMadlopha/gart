@@ -1,0 +1,169 @@
+Index: core/src/main/java/com/gart/core/database/entities/Item.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/src/main/java/com/gart/core/database/entities/Item.kt	(date 1543959740000)
++++ core/src/main/java/com/gart/core/database/entities/Item.kt	(date 1543959740000)
+@@ -0,0 +1,34 @@
++package com.gart.core.database.entities
++
++import android.os.Parcelable
++import androidx.room.Entity
++import androidx.room.Ignore
++import androidx.room.PrimaryKey
++import kotlinx.android.parcel.Parcelize
++
++@Parcelize
++@Entity(tableName = "item")
++class Item(
++    @PrimaryKey(autoGenerate = true)
++    val id: Int,
++    val description: String,
++    val forksCount: Int,
++    val fullName: String,
++    val gitUrl: String,
++    val language: String,
++    val license: License?,
++    val name: String,
++    val openIssuesCount: Int,
++    val owner: Owner?,
++    val stargazersCount: Int,
++    val updatedAt: String,
++    val url: String,
++    val watchersCount: Int
++) : Parcelable {
++
++    @Ignore
++    constructor() : this(0, "", 0, "", "", "", null,
++        "", 0, null, 0, "", "", 0) {
++    }
++
++}
+\ No newline at end of file
+Index: core/src/main/java/com/gart/core/database/GartDatabase.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/src/main/java/com/gart/core/database/GartDatabase.kt	(date 1543953947000)
++++ core/src/main/java/com/gart/core/database/GartDatabase.kt	(date 1543953947000)
+@@ -0,0 +1,8 @@
++package com.gart.core.database
++
++import javax.inject.Singleton
++
++
++@Singleton
++class GartDatabase {
++}
+\ No newline at end of file
+Index: core/src/main/java/com/gart/core/services/GithubResponse.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.gart.core.services\n\nimport com.google.gson.annotations.SerializedName\n\nclass GithubResponse(\n    @SerializedName(\"items\")\n    val items: List<Item>\n) {\n    data class Item(\n        @SerializedName(\"description\")\n        val description: String,\n        @SerializedName(\"forks_count\")\n        val forksCount: Int,\n        @SerializedName(\"full_name\")\n        val fullName: String,\n        @SerializedName(\"git_url\")\n        val gitUrl: String,\n        @SerializedName(\"id\")\n        val id: Int,\n        @SerializedName(\"language\")\n        val language: String,\n        @SerializedName(\"license\")\n        val license: License,\n        @SerializedName(\"name\")\n        val name: String,\n        @SerializedName(\"open_issues_count\")\n        val openIssuesCount: Int,\n        @SerializedName(\"owner\")\n        val owner: Owner,\n        @SerializedName(\"stargazers_count\")\n        val stargazersCount: Int,\n        @SerializedName(\"updated_at\")\n        val updatedAt: String,\n        @SerializedName(\"url\")\n        val url: String,\n        @SerializedName(\"watchers_count\")\n        val watchersCount: Int\n    ) {\n        data class License(\n            @SerializedName(\"key\")\n            val key: String,\n            @SerializedName(\"name\")\n            val name: String,\n            @SerializedName(\"node_id\")\n            val nodeId: String,\n            @SerializedName(\"spdx_id\")\n            val spdxId: String,\n            @SerializedName(\"url\")\n            val url: String\n        )\n\n        data class Owner(\n            @SerializedName(\"login\")\n            val login: String\n        )\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/src/main/java/com/gart/core/services/GithubResponse.kt	(revision c6ce11cc8ad2baa02aec49521c559e0d1df42dd8)
++++ core/src/main/java/com/gart/core/services/GithubResponse.kt	(date 1543956989000)
+@@ -37,16 +37,8 @@
+         val watchersCount: Int
+     ) {
+         data class License(
+-            @SerializedName("key")
+-            val key: String,
+             @SerializedName("name")
+-            val name: String,
+-            @SerializedName("node_id")
+-            val nodeId: String,
+-            @SerializedName("spdx_id")
+-            val spdxId: String,
+-            @SerializedName("url")
+-            val url: String
++            val name: String
+         )
+ 
+         data class Owner(
+Index: core/src/main/java/com/gart/core/database/entities/Owner.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/src/main/java/com/gart/core/database/entities/Owner.kt	(date 1543957250000)
++++ core/src/main/java/com/gart/core/database/entities/Owner.kt	(date 1543957250000)
+@@ -0,0 +1,22 @@
++package com.gart.core.database.entities
++
++import android.os.Parcelable
++import androidx.room.Entity
++import androidx.room.Ignore
++import androidx.room.PrimaryKey
++import kotlinx.android.parcel.Parcelize
++
++
++@Parcelize
++@Entity(tableName = "owner")
++class Owner(
++    @PrimaryKey(autoGenerate = true)
++    val id: Int,
++    val login: String
++) : Parcelable {
++
++    @Ignore
++    constructor() : this(0, "") {
++    }
++
++}
+\ No newline at end of file
+Index: core/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.library'\n\napply plugin: 'kotlin-android'\n\napply plugin: 'kotlin-android-extensions'\n\nandroid {\n    compileSdkVersion compile_sdk_version\n\n    defaultConfig {\n        minSdkVersion min_sdk_version\n        targetSdkVersion target_sdk_version\n        versionCode version_code\n        versionName version_name\n\n        testInstrumentationRunner \"android.support.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\n        }\n    }\n\n}\n\ndependencies {\n    api fileTree(dir: 'libs', include: ['*.jar'])\n\n    api \"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version\"\n    api \"androidx.core:core-ktx:$androidx_core_version\"\n    api \"androidx.appcompat:appcompat:$androidx_appcompat_version\"\n    api \"androidx.constraintlayout:constraintlayout:$constraintlayout_version\"\n    api \"com.google.android.material:material:$material_verion\"\n\n    api \"androidx.lifecycle:lifecycle-extensions:$lifecycle_version\"\n    kapt \"androidx.lifecycle:lifecycle-compiler:$lifecycle_version\"\n\n    api \"androidx.room:room-runtime:$room_version\"\n    kapt \"androidx.room:room-compiler:$room_version\"\n\n    api \"com.squareup.retrofit2:retrofit:$retrofit_version\"\n    api \"com.squareup.retrofit2:converter-gson:$retrofit_version\"\n\n    api \"com.google.dagger:dagger:$dagger_version\"\n    api \"com.google.dagger:dagger-android:$dagger_version\"\n    api \"com.google.dagger:dagger-android-support:$dagger_version\"\n    kapt \"com.google.dagger:dagger-compiler:$dagger_version\"\n    kapt \"com.google.dagger:dagger-android-processor:$dagger_version\"\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/build.gradle	(revision c6ce11cc8ad2baa02aec49521c559e0d1df42dd8)
++++ core/build.gradle	(date 1543955543000)
+@@ -23,6 +23,10 @@
+         }
+     }
+ 
++    androidExtensions {
++        experimental = true
++    }
++
+ }
+ 
+ dependencies {
+Index: core/src/main/java/com/gart/core/database/entities/License.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/src/main/java/com/gart/core/database/entities/License.kt	(date 1543957250000)
++++ core/src/main/java/com/gart/core/database/entities/License.kt	(date 1543957250000)
+@@ -0,0 +1,22 @@
++package com.gart.core.database.entities
++
++import android.os.Parcelable
++import androidx.room.Entity
++import androidx.room.Ignore
++import androidx.room.PrimaryKey
++import kotlinx.android.parcel.Parcelize
++
++
++@Parcelize
++@Entity(tableName = "license")
++class License(
++    @PrimaryKey(autoGenerate = true)
++    val id: Int,
++    val name: String
++) : Parcelable {
++
++    @Ignore
++    constructor() : this(0, "") {
++    }
++
++}
+\ No newline at end of file

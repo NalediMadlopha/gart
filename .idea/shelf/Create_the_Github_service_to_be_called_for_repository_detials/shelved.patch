@@ -1,0 +1,28 @@
+Index: core/src/main/java/com/gart/core/repository/GithubRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/src/main/java/com/gart/core/repository/GithubRepository.kt	(date 1543951184000)
++++ core/src/main/java/com/gart/core/repository/GithubRepository.kt	(date 1543951184000)
+@@ -0,0 +1,3 @@
++package com.gart.core.repository
++
++
+Index: core/src/main/java/com/gart/core/database/GartDatabase.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- core/src/main/java/com/gart/core/database/GartDatabase.kt	(date 1543952002000)
++++ core/src/main/java/com/gart/core/database/GartDatabase.kt	(date 1543952002000)
+@@ -0,0 +1,8 @@
++package com.gart.core.database
++
++import javax.inject.Singleton
++
++
++@Singleton
++class GartDatabase {
++}
+\ No newline at end of file
