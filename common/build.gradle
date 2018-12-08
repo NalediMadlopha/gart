@@ -15,7 +15,7 @@ android {
         versionCode globalConfiguration["versionCode"]
         versionName globalConfiguration["versionName"]
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -32,7 +32,7 @@ dependencies {
     implementation project(':core')
 
     testImplementation "org.mockito:mockito-core:$test_mockito_version"
-    testImplementation "junit:junit:$test_junit_version"
+    testImplementation "androidx.test.ext:junit:1.0.0"
     testImplementation "org.hamcrest:hamcrest-all:$test_hamcrest_version"
     testImplementation "org.robolectric:robolectric:$test_robolectric_version"
 }

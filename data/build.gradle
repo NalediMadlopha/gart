@@ -16,7 +16,6 @@ android {
         versionName globalConfiguration["versionName"]
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -24,6 +23,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
     }
 
 }
@@ -35,7 +38,9 @@ dependencies {
     implementation dataDependencies.room
     kapt dataDependencies.roomCompiler
 
-    testImplementation dataTestDependencies.junit
-    testImplementation dataTestDependencies.mockito
-    testImplementation dataTestDependencies.hamcrest
+    androidTestImplementation dataTestDependencies.androidxTestCore
+    androidTestImplementation dataTestDependencies.androidxTestRunner
+    androidTestImplementation dataTestDependencies.junit
+    androidTestImplementation dataTestDependencies.mockito
+    androidTestImplementation dataTestDependencies.hamcrest
 }
