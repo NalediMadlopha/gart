@@ -24,6 +24,7 @@ ext {
     roomVersion = '2.0.0'
     retrofitVersion = '2.5.0'
     androidAnnotationsVersion = '21.0.3'
+    gsonVersion = '2.8.5'
 
     /* Testing */
     androidxTestCoreVersion = '1.0.0'
@@ -83,7 +84,8 @@ ext {
         lifeCycleExtensions:    "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
         lifeCycleCompiler:      "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
         room:                   "androidx.room:room-runtime:${roomVersion}",
-        roomCompiler:           "androidx.room:room-compiler:${roomVersion}"
+        roomCompiler:           "androidx.room:room-compiler:${roomVersion}",
+        gson:                   "com.google.code.gson:gson:${gsonVersion}"
     ]
 
     dataTestDependencies = [
