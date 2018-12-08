@@ -35,6 +35,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation dataDependencies.kotlin
+    implementation dataDependencies.coreKotlinX
+    implementation dataDependencies.lifeCycleExtensions
+    kapt dataDependencies.lifeCycleCompiler
     implementation dataDependencies.room
     kapt dataDependencies.roomCompiler
 
