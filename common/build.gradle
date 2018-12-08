@@ -25,14 +25,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
-    implementation project(':core')
+    implementation commonDependencies.kotlin
+    implementation commonDependencies.coreKotlinX
+    implementation commonDependencies.constraintLayout
+    implementation commonDependencies.material
 
-    testImplementation "org.mockito:mockito-core:$test_mockito_version"
-    testImplementation "androidx.test.ext:junit:1.0.0"
-    testImplementation "org.hamcrest:hamcrest-all:$test_hamcrest_version"
-    testImplementation "org.robolectric:robolectric:$test_robolectric_version"
+    testImplementation commonTestDependencies.androidxTestCore
+    testImplementation commonTestDependencies.androidxTestRunner
+    testImplementation commonTestDependencies.robolectric
+    testImplementation commonTestDependencies.junit
+    testImplementation commonTestDependencies.mockito
+    testImplementation commonTestDependencies.hamcrest
 }

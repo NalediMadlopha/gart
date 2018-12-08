@@ -22,7 +22,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(manifest=Config.NONE, sdk = [21])
+@Config(manifest= Config.NONE, sdk = [21])
 class LabelValueWidgetTest {
 
     private lateinit var labelValueWidget: LabelValueWidget
