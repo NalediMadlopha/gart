@@ -42,5 +42,4 @@ dependencies {
     androidTestImplementation dataTestDependencies.androidxTestRunner
     androidTestImplementation dataTestDependencies.junit
     androidTestImplementation dataTestDependencies.mockito
-    androidTestImplementation dataTestDependencies.hamcrest
 }

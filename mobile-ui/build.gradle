@@ -72,5 +72,4 @@ dependencies {
 
     testImplementation mobileUiTestDependencies.junit
     testImplementation mobileUiTestDependencies.mockito
-    testImplementation mobileUiTestDependencies.hamcrest
 }
