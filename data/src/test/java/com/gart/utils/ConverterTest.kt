@@ -17,46 +17,45 @@ class ConverterTest {
     }
 
     @Test
-    fun `return null if stringToLicense is invoked with an empty string`() {
+    fun return_null_if_stringToLicense_is_invoked_with_an_empty_string() {
         val license = converter.stringToLicense("")
 
         assertNull(license)
     }
 
     @Test
-    fun `return a license model if stringToLicense is invoked with a non-null string`() {
+    fun return_a_license_model_if_stringToLicense_is_invoked_with_a_non_null_string() {
         val license = converter.stringToLicense(LICENSE_STRING)
 
         assertNotNull(license)
     }
 
     @Test
-    fun `return license as a string if licenseToString is invoked with a License model`() {
+    fun return_license_as_a_string_if_licenseToString_is_invoked_with_a_License_model() {
         val licenseString = converter.licenseToString(GithubRepositoryLicense(0,  LICENSE_KEY, LICENSE_NAME, LICENSE_SPDX_ID, LICENSE_URL, NODE_ID))
 
         assertNotNull(licenseString)
     }
 
     @Test
-    fun `return null if stringToOwner is invoked with an empty string`() {
+    fun return_null_if_stringToOwner_is_invoked_with_an_empty_string() {
         val owner = converter.stringToOwner("")
 
         assertNull(owner)
     }
 
     @Test
-    fun `return an owner model if stringToOwner is invoked with an non null string`() {
+    fun return_an_owner_model_if_stringToOwner_is_invoked_with_an_non_null_string() {
         val owner = converter.stringToOwner(OWNER_STRING)
 
         assertNotNull(owner)
     }
 
     @Test
-    fun `return owner as a string if ownerToString is invoked with an Owner model`() {
+    fun return_owner_as_a_string_if_ownerToString_is_invoked_with_an_Owner_model() {
         val owner = converter.ownerToString(GithubRepositoryOwner(0, LOGIN_NAME))
 
         assertNotNull(owner)
-
     }
 
     companion object {
@@ -79,4 +78,5 @@ class ConverterTest {
                 "        \"login\": \"PhilJay\"" +
                 "      }"
     }
+
 }
