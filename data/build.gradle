@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
@@ -15,7 +17,14 @@ android {
         versionCode globalConfiguration["versionCode"]
         versionName globalConfiguration["versionName"]
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -35,12 +44,20 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation dataDependencies.kotlin
+    implementation dataDependencies.coreKotlinX
+    implementation dataDependencies.lifeCycleExtensions
+    kapt dataDependencies.lifeCycleCompiler
     implementation dataDependencies.room
     kapt dataDependencies.roomCompiler
+    implementation dataDependencies.gson
 
     androidTestImplementation dataTestDependencies.androidxTestCore
     androidTestImplementation dataTestDependencies.androidxTestRunner
     androidTestImplementation dataTestDependencies.junit
     androidTestImplementation dataTestDependencies.mockito
-    androidTestImplementation dataTestDependencies.hamcrest
+
+    testImplementation dataTestDependencies.androidxTestCore
+    testImplementation dataTestDependencies.androidxTestRunner
+    testImplementation dataTestDependencies.junit
+    testImplementation dataTestDependencies.mockito
 }
