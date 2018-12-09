@@ -22,4 +22,12 @@ dependencies {
     implementation serviceDependencies.kotlin
     implementation serviceDependencies.retrofit
     implementation serviceDependencies.retrofitConverter
+    implementation serviceDependencies.room
+    kapt serviceDependencies.roomCompiler
+    implementation serviceDependencies.gson
+
+    testImplementation dataTestDependencies.androidxTestCore
+    testImplementation dataTestDependencies.androidxTestRunner
+    testImplementation dataTestDependencies.junit
+    testImplementation dataTestDependencies.mockito
 }
