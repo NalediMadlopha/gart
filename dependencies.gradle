@@ -83,6 +83,8 @@ ext {
         coreKotlinX:            "androidx.core:core-ktx:${coreKotlin}",
         lifeCycleExtensions:    "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
         lifeCycleCompiler:      "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
+        retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+        retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
         room:                   "androidx.room:room-runtime:${roomVersion}",
         roomCompiler:           "androidx.room:room-compiler:${roomVersion}",
         gson:                   "com.google.code.gson:gson:${gsonVersion}"

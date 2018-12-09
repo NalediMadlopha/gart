@@ -1,14 +1,12 @@
-package com.gart.data
+package com.gart.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.gart.model.GithubRepositoryItem
-import com.gart.model.GithubRepositoryLicense
-import com.gart.model.GithubRepositoryOwner
+import com.gart.data.model.GithubRepositoryItem
 
-@Database(entities = [(GithubRepositoryItem::class), (GithubRepositoryLicense::class), (GithubRepositoryOwner::class)], version = 1)
+@Database(entities = [(GithubRepositoryItem::class), (GithubRepositoryItem.License::class), (GithubRepositoryItem.Owner::class)], version = 1)
 abstract class GartDatabase : RoomDatabase() {
 
     abstract fun getRepositoryDao(): RepositoryDao

@@ -47,6 +47,8 @@ dependencies {
     implementation dataDependencies.coreKotlinX
     implementation dataDependencies.lifeCycleExtensions
     kapt dataDependencies.lifeCycleCompiler
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofitConverter
     implementation dataDependencies.room
     kapt dataDependencies.roomCompiler
     implementation dataDependencies.gson

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gart.app.R
 import com.gart.app.details.RepositoryDetailsActivity
-import com.gart.model.GithubRepositoryItem
+import com.gart.data.model.GithubRepositoryItem
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.repository_summary_details_layout.*
 
@@ -31,11 +31,11 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
     class RepositoryViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, View.OnClickListener {
 
         fun bind(item: GithubRepositoryItem) {
-            listItemRepositoryFullNameTextView.text = item.fullName
+            listItemRepositoryFullNameTextView.text = item.full_name
             listItemRepositoryDescriptionTextView.text = item.description
             listItemRepositoryLanguageTextView.text = item.language
-            listItemRepositoryLastUpdateTextView.text = item.updatedAt
-            listItemRepositoryStarGazersTextView.text = item.stargazersCount.toString()
+            listItemRepositoryLastUpdateTextView.text = item.updated_at
+            listItemRepositoryStarGazersTextView.text = item.stargazers_count.toString()
 
             containerView.setOnClickListener(this);
         }

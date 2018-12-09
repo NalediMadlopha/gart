@@ -1,7 +1,6 @@
-package com.gart.utils
+package com.gart.data.utils
 
-import com.gart.model.GithubRepositoryLicense
-import com.gart.model.GithubRepositoryOwner
+import com.gart.data.model.GithubRepositoryItem
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Before
@@ -32,7 +31,7 @@ class ConverterTest {
 
     @Test
     fun return_license_as_a_string_if_licenseToString_is_invoked_with_a_License_model() {
-        val licenseString = converter.licenseToString(GithubRepositoryLicense(0,  LICENSE_KEY, LICENSE_NAME, LICENSE_SPDX_ID, LICENSE_URL, NODE_ID))
+        val licenseString = converter.licenseToString(GithubRepositoryItem.License(1,  LICENSE_KEY, LICENSE_NAME, LICENSE_SPDX_ID, LICENSE_URL, NODE_ID, 1))
 
         assertNotNull(licenseString)
     }
@@ -53,7 +52,7 @@ class ConverterTest {
 
     @Test
     fun return_owner_as_a_string_if_ownerToString_is_invoked_with_an_Owner_model() {
-        val owner = converter.ownerToString(GithubRepositoryOwner(0, LOGIN_NAME))
+        val owner = converter.ownerToString(GithubRepositoryItem.Owner(1, LOGIN_NAME, 1))
 
         assertNotNull(owner)
     }

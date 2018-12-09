@@ -1,11 +1,11 @@
-package com.gart.data
+package com.gart.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import com.gart.model.GithubRepositoryItem
+import com.gart.data.model.GithubRepositoryItem
 
 @Dao
 interface RepositoryDao {
