@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.gart.utils.Converter
 
-@Entity(tableName = "githubRepositoryItem")
+@Entity(tableName = "item")
 @TypeConverters(Converter::class)
 class GithubRepositoryItem(
     @PrimaryKey(autoGenerate = true)
