@@ -1,7 +1,8 @@
 package com.gart.data.repository
 
-import android.util.Log
+import android.os.AsyncTask
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.gart.data.database.RepositoryDao
 import com.gart.data.model.GithubRepositoryItem
 import com.gart.service.GithubService
@@ -25,26 +26,34 @@ class GartRepository(private val githubService: GithubService, private val repos
     }
 
     private fun updateRepositoryDatabase() {
+        val data = MutableLiveData<List<GithubRepositoryItem>>()
+
         githubService.searchRepositories(QUERY, SORT, ORDER).enqueue(object : Callback<JsonObject> {
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                val jsonElement = (response.body()?.get("items") as JsonArray)
+                if (response.isSuccessful) {
+                    val itemsJsonArray = (response.body()?.get(ITEMS) as JsonArray)
 
-                val gson = GsonBuilder().setPrettyPrinting().create()
-                val packagesArray = gson.fromJson(jsonElement , Array<GithubRepositoryItem>::class.java).toList()
-
-                Log.d("Github response", response.body()?.get("items").toString())
+                    data.value = jsonArrayToList(itemsJsonArray)
+                    AsyncTask.execute { repositoryDao.insertAll(data.value!!) }
+                }
             }
 
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-                Log.d("Github test", t.message, t)
+                // TODO: I have left out the error case for brevity - Handle the error case
             }
         })
+    }
+
+    private fun jsonArrayToList(jsonArray: JsonArray): List<GithubRepositoryItem> {
+        val gson = GsonBuilder().setPrettyPrinting().create()
+        return gson.fromJson(jsonArray, Array<GithubRepositoryItem>::class.java).toList()
     }
 
     companion object {
         private const val QUERY = "android+language:kotlin+language:java"
         private const val SORT = "stars"
         private const val ORDER = "desc"
+        private const val ITEMS = "items"
     }
 
 }
