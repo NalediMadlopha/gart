@@ -42,7 +42,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':service')
 
     implementation dataDependencies.kotlin
     implementation dataDependencies.coreKotlinX
