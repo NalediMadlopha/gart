@@ -41,5 +41,6 @@ before_install:
 
 script:
  - ./gradlew build check
+ — ./gradlew build jacocoTestReport
 after_success:
   - bash <(curl -s https://codecov.io/bash)
