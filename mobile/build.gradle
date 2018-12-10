@@ -61,7 +61,7 @@ android {
 }
 
 dependencies {
-    implementation project(':common')
+    implementation project(':components')
     implementation project(':base')
 
     implementation mobileUiDependencies.kotlin

@@ -1,1 +1,1 @@
-include ':mobile', ':common', ':base', ':presentation'
+include ':mobile', ':components', ':base', ':presentation'
