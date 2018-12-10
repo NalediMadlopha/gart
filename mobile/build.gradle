@@ -64,17 +64,17 @@ dependencies {
     implementation project(':components')
     implementation project(':base')
 
-    implementation mobileUiDependencies.kotlin
-    implementation mobileUiDependencies.coreKotlinX
-    implementation mobileUiDependencies.constraintLayout
-    implementation mobileUiDependencies.material
-    implementation mobileUiDependencies.lifeCycleExtensions
-    kapt mobileUiDependencies.lifeCycleCompiler
-    kapt mobileUiDependencies.dagger
-    kapt mobileUiDependencies.daggerCompiler
-    implementation mobileUiDependencies.daggerSupport
-    kapt mobileUiDependencies.daggerProcessor
+    implementation mobileDependencies.kotlin
+    implementation mobileDependencies.coreKotlinX
+    implementation mobileDependencies.constraintLayout
+    implementation mobileDependencies.material
+    implementation mobileDependencies.lifeCycleExtensions
+    kapt mobileDependencies.lifeCycleCompiler
+    kapt mobileDependencies.dagger
+    kapt mobileDependencies.daggerCompiler
+    implementation mobileDependencies.daggerSupport
+    kapt mobileDependencies.daggerProcessor
 
-    testImplementation mobileUiTestDependencies.junit
-    testImplementation mobileUiTestDependencies.mockito
+    testImplementation mobileTestDependencies.junit
+    testImplementation mobileTestDependencies.mockito
 }

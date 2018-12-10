@@ -28,14 +28,14 @@ android {
 }
 
 dependencies {
-    implementation commonDependencies.kotlin
-    implementation commonDependencies.coreKotlinX
-    implementation commonDependencies.constraintLayout
-    implementation commonDependencies.material
+    implementation componentsDependencies.kotlin
+    implementation componentsDependencies.coreKotlinX
+    implementation componentsDependencies.constraintLayout
+    implementation componentsDependencies.material
 
-    testImplementation commonTestDependencies.androidxTestCore
-    testImplementation commonTestDependencies.androidxTestRunner
-    testImplementation commonTestDependencies.robolectric
-    testImplementation commonTestDependencies.junit
-    testImplementation commonTestDependencies.mockito
+    testImplementation componentsTestDependencies.androidxTestCore
+    testImplementation componentsTestDependencies.androidxTestRunner
+    testImplementation componentsTestDependencies.robolectric
+    testImplementation componentsTestDependencies.junit
+    testImplementation componentsTestDependencies.mockito
 }
