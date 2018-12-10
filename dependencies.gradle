@@ -34,14 +34,37 @@ ext {
     espressoVersion = '3.1.0'
     robolectricVersion = '4.0.2'
 
-    commonDependencies = [
+    baseDependencies = [
+        kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+        coreKotlinX:            "androidx.core:core-ktx:${coreKotlin}",
+        lifeCycleExtensions:    "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
+        lifeCycleCompiler:      "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
+        retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+        retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+        room:                   "androidx.room:room-runtime:${roomVersion}",
+        roomCompiler:           "androidx.room:room-compiler:${roomVersion}",
+        gson:                   "com.google.code.gson:gson:${gsonVersion}",
+        dagger:                 "com.google.dagger:dagger:${daggerVersion}",
+        daggerCompiler:         "com.google.dagger:dagger-compiler:${daggerVersion}",
+        daggerSupport:          "com.google.dagger:dagger-android-support:${daggerVersion}",
+        daggerProcessor:        "com.google.dagger:dagger-android-processor:${daggerVersion}"
+    ]
+
+    baseTestDependencies = [
+        junit:                  "androidx.test.ext:junit:${androidxJunitVersion}",
+        androidxTestCore:       "androidx.test:core:${androidxTestCoreVersion}",
+        androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
+        mockito:                "org.mockito:mockito-core:${mockitoVersion}",
+    ]
+
+    componentsDependencies = [
         kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
         coreKotlinX:            "androidx.core:core-ktx:${coreKotlin}",
         constraintLayout:       "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
         material:               "com.google.android.material:material:$materialVersion"
     ]
 
-    commonTestDependencies = [
+    componentsTestDependencies = [
         junit:                  "androidx.test.ext:junit:${androidxJunitVersion}",
         androidxTestCore:       "androidx.test:core:${androidxTestCoreVersion}",
         androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
@@ -49,7 +72,7 @@ ext {
         mockito:                "org.mockito:mockito-core:${mockitoVersion}",
     ]
 
-    mobileUiDependencies = [
+    mobileDependencies = [
         kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
         coreKotlinX:            "androidx.core:core-ktx:${coreKotlin}",
         constraintLayout:       "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
@@ -59,10 +82,10 @@ ext {
         dagger:                 "com.google.dagger:dagger:${daggerVersion}",
         daggerCompiler:         "com.google.dagger:dagger-compiler:${daggerVersion}",
         daggerSupport:          "com.google.dagger:dagger-android-support:${daggerVersion}",
-        daggerProcessor:        "com.google.dagger:dagger-android-processor:${daggerVersion}",
+        daggerProcessor:        "com.google.dagger:dagger-android-processor:${daggerVersion}"
     ]
 
-    mobileUiTestDependencies = [
+    mobileTestDependencies = [
         junit:                  "androidx.test.ext:junit:${androidxJunitVersion}",
         androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
         mockito:                "org.mockito:mockito-core:${mockitoVersion}",
@@ -70,31 +93,6 @@ ext {
         espressoIntents:        "androidx.test.espresso:espresso-intents:${espressoVersion}",
         espressoContrib:        "androidx.test.espresso:espresso-contrib:${espressoVersion}",
         robolectric:            "org.robolectric:robolectric:${robolectricVersion}"
-    ]
-
-    serviceDependencies = [
-        kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
-        retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-        retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
-    ]
-
-    dataDependencies = [
-        kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
-        coreKotlinX:            "androidx.core:core-ktx:${coreKotlin}",
-        lifeCycleExtensions:    "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
-        lifeCycleCompiler:      "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
-        retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-        retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-        room:                   "androidx.room:room-runtime:${roomVersion}",
-        roomCompiler:           "androidx.room:room-compiler:${roomVersion}",
-        gson:                   "com.google.code.gson:gson:${gsonVersion}"
-    ]
-
-    dataTestDependencies = [
-        junit:                  "androidx.test.ext:junit:${androidxJunitVersion}",
-        androidxTestCore:       "androidx.test:core:${androidxTestCoreVersion}",
-        androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
-        mockito:                "org.mockito:mockito-core:${mockitoVersion}",
     ]
 
 }

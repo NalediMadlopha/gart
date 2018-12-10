@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+        versionCode globalConfiguration["versionCode"]
+        versionName globalConfiguration["versionName"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation componentsDependencies.kotlin
+    implementation componentsDependencies.coreKotlinX
+    implementation componentsDependencies.constraintLayout
+    implementation componentsDependencies.material
+
+    testImplementation componentsTestDependencies.androidxTestCore
+    testImplementation componentsTestDependencies.androidxTestRunner
+    testImplementation componentsTestDependencies.robolectric
+    testImplementation componentsTestDependencies.junit
+    testImplementation componentsTestDependencies.mockito
+}
