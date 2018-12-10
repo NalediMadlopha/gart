@@ -1,10 +1,10 @@
-package com.gart.data.model
+package com.gart.base.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.gart.data.utils.Converter
+import com.gart.base.utils.Converter
 
 @Entity(tableName = "item")
 @TypeConverters(Converter::class)

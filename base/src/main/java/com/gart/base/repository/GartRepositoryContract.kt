@@ -1,7 +1,7 @@
-package com.gart.data.repository
+package com.gart.base.repository
 
 import androidx.lifecycle.LiveData
-import com.gart.data.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepositoryItem
 
 interface GartRepositoryContract {
 

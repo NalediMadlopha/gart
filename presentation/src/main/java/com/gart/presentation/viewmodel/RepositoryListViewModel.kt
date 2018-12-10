@@ -3,9 +3,9 @@ package com.gart.presentation.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.gart.data.database.GartDatabase
-import com.gart.data.model.GithubRepositoryItem
-import com.gart.data.repository.GartRepository
+import com.gart.base.database.GartDatabase
+import com.gart.base.model.GithubRepositoryItem
+import com.gart.base.repository.GartRepository
 import com.gart.service.GithubService
 import com.gart.service.GithubService.Companion.BASE_URL
 import retrofit2.Retrofit

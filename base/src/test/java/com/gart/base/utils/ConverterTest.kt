@@ -1,6 +1,6 @@
-package com.gart.data.utils
+package com.gart.base.utils
 
-import com.gart.data.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepositoryItem
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Before

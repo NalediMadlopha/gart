@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gart.app.R
 import com.gart.app.details.RepositoryDetailsActivity
-import com.gart.data.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepositoryItem
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.repository_summary_details_layout.*
 

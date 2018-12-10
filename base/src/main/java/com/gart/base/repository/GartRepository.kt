@@ -1,10 +1,10 @@
-package com.gart.data.repository
+package com.gart.base.repository
 
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.gart.data.database.RepositoryDao
-import com.gart.data.model.GithubRepositoryItem
+import com.gart.base.database.RepositoryDao
+import com.gart.base.model.GithubRepositoryItem
 import com.gart.service.GithubService
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray

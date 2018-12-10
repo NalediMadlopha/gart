@@ -1,10 +1,10 @@
-package com.gart.data.database
+package com.gart.base.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.gart.data.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepositoryItem
 
 @Database(entities = [(GithubRepositoryItem::class), (GithubRepositoryItem.License::class), (GithubRepositoryItem.Owner::class)], version = 1)
 abstract class GartDatabase : RoomDatabase() {

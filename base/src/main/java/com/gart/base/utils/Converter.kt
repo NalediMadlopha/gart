@@ -1,7 +1,7 @@
-package com.gart.data.utils
+package com.gart.base.utils
 
 import androidx.room.TypeConverter
-import com.gart.data.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepositoryItem
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

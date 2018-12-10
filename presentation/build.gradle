@@ -30,7 +30,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':data')
+    implementation project(':base')
     implementation project(':service')
 
     implementation presentationDependencies.kotlin
