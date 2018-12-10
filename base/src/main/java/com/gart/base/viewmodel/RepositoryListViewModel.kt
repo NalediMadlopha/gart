@@ -1,4 +1,4 @@
-package com.gart.presentation.viewmodel
+package com.gart.base.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import com.gart.base.database.GartDatabase
 import com.gart.base.model.GithubRepositoryItem
 import com.gart.base.repository.GartRepository
-import com.gart.service.GithubService
-import com.gart.service.GithubService.Companion.BASE_URL
+import com.gart.base.service.GithubService
+import com.gart.base.service.GithubService.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
