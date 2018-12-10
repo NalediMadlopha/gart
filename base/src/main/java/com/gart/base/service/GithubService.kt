@@ -1,4 +1,4 @@
-package com.gart.service
+package com.gart.base.service
 
 import com.google.gson.JsonObject
 import retrofit2.Call

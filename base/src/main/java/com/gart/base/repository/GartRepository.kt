@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.gart.base.database.RepositoryDao
 import com.gart.base.model.GithubRepositoryItem
-import com.gart.service.GithubService
+import com.gart.base.service.GithubService
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject

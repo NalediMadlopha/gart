@@ -31,7 +31,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':base')
-    implementation project(':service')
 
     implementation presentationDependencies.kotlin
     implementation presentationDependencies.coreKotlinX
