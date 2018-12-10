@@ -97,4 +97,11 @@ ext {
         mockito:                "org.mockito:mockito-core:${mockitoVersion}",
     ]
 
+    presentationDependencies = [
+        kotlin:                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+        coreKotlinX:            "androidx.core:core-ktx:${coreKotlin}",
+        lifeCycleExtensions:    "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
+        lifeCycleCompiler:      "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}"
+    ]
+
 }
