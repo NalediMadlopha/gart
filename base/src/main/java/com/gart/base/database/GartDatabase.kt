@@ -6,10 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.gart.base.model.GithubRepositoryItem
 
-@Database(entities = [(GithubRepositoryItem::class), (GithubRepositoryItem.License::class), (GithubRepositoryItem.Owner::class)], version = 1)
+@Database(entities = [(GithubRepositoryItem::class)], version = 6)
 abstract class GartDatabase : RoomDatabase() {
 
-    abstract fun getRepositoryDao(): RepositoryDao
+    abstract fun repositoryDao(): RepositoryDao
 
     companion object {
         @Volatile
@@ -27,7 +27,9 @@ abstract class GartDatabase : RoomDatabase() {
                     context.applicationContext,
                     GartDatabase::class.java,
                     "gart_db"
-                ).build()
+                )
+                .fallbackToDestructiveMigration()
+                .build()
 
                 INSTANCE = instance
                 return instance

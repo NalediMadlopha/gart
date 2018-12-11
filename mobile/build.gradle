@@ -70,6 +70,10 @@ dependencies {
     implementation mobileDependencies.material
     implementation mobileDependencies.lifeCycleExtensions
     kapt mobileDependencies.lifeCycleCompiler
+    implementation mobileDependencies.retrofit
+    implementation mobileDependencies.retrofitConverter
+    implementation baseDependencies.room
+    kapt baseDependencies.roomCompiler
     kapt mobileDependencies.dagger
     kapt mobileDependencies.daggerCompiler
     implementation mobileDependencies.daggerSupport

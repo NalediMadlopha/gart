@@ -13,7 +13,7 @@ interface RepositoryDao {
     @Insert(onConflict = REPLACE)
     fun insertAll(githubRepositories: List<GithubRepositoryItem>)
 
-    @Query("SELECT * FROM item")
+    @Query("SELECT * FROM item ORDER BY stargazers_count DESC")
     fun getAllRepositories(): LiveData<List<GithubRepositoryItem>>
 
     @Query("SELECT * FROM item WHERE id = :id")

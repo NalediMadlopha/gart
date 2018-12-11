@@ -52,6 +52,11 @@ dependencies {
     implementation baseDependencies.room
     kapt baseDependencies.roomCompiler
     implementation baseDependencies.gson
+    implementation baseDependencies.dagger
+    implementation baseDependencies.daggerAndroid
+    implementation baseDependencies.daggerSupport
+    kapt baseDependencies.daggerCompiler
+    kapt baseDependencies.daggerProcessor
 
     androidTestImplementation baseTestDependencies.androidxTestCore
     androidTestImplementation baseTestDependencies.androidxTestRunner
