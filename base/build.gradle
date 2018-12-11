@@ -66,5 +66,6 @@ dependencies {
     testImplementation baseTestDependencies.androidxTestCore
     testImplementation baseTestDependencies.androidxTestRunner
     testImplementation baseTestDependencies.junit
+    testImplementation baseTestDependencies.robolectric
     testImplementation baseTestDependencies.mockito
 }

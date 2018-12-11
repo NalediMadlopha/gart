@@ -56,6 +56,7 @@ ext {
         junit:                  "androidx.test.ext:junit:${androidxJunitVersion}",
         androidxTestCore:       "androidx.test:core:${androidxTestCoreVersion}",
         androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
+        robolectric:            "org.robolectric:robolectric:${robolectricVersion}",
         mockito:                "org.mockito:mockito-core:${mockitoVersion}"
     ]
 
