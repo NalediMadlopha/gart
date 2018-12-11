@@ -4,6 +4,7 @@ import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.gart.base.database.RepositoryDao
+import com.gart.base.di.App
 import com.gart.base.model.GithubRepositoryItem
 import com.gart.base.service.GithubService
 import com.google.gson.GsonBuilder
@@ -12,9 +13,19 @@ import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
 
-class GartRepository(private val githubService: GithubService, private val repositoryDao: RepositoryDao) : GartRepositoryContract {
+class GartRepository : GartRepositoryContract {
+
+    @Inject
+    lateinit var githubService: GithubService
+    @Inject
+    lateinit var repositoryDao: RepositoryDao
+
+    init {
+        App.appComponent().inject(this)
+    }
 
     override fun getGithubRepositories(): LiveData<List<GithubRepositoryItem>> {
         updateRepositoryDatabase()

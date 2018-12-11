@@ -1,31 +1,22 @@
 package com.gart.base.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.gart.base.database.GartDatabase
+import androidx.lifecycle.ViewModel
+import com.gart.base.di.App
 import com.gart.base.model.GithubRepositoryItem
 import com.gart.base.repository.GartRepository
-import com.gart.base.service.GithubService
-import com.gart.base.service.GithubService.Companion.BASE_URL
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 
-class RepositoryListViewModel(application: Application) : AndroidViewModel(application) {
+class RepositoryListViewModel : ViewModel() {
 
-    private val gartRepository: GartRepository
+    @Inject
+    lateinit var gartRepository: GartRepository
+
     private val githubRepositoryList: LiveData<List<GithubRepositoryItem>>
 
     init {
-        val githubService: GithubService = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(GithubService::class.java)
-
-        val repositoryDao = GartDatabase.getInstance(application).getRepositoryDao()
-        gartRepository = GartRepository(githubService, repositoryDao)
+        App.appComponent().inject(this)
 
         githubRepositoryList = gartRepository.getGithubRepositories()
     }
