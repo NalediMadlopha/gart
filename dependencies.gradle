@@ -54,7 +54,7 @@ ext {
         junit:                  "androidx.test.ext:junit:${androidxJunitVersion}",
         androidxTestCore:       "androidx.test:core:${androidxTestCoreVersion}",
         androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
-        mockito:                "org.mockito:mockito-core:${mockitoVersion}",
+        mockito:                "org.mockito:mockito-core:${mockitoVersion}"
     ]
 
     componentsDependencies = [
@@ -69,7 +69,7 @@ ext {
         androidxTestCore:       "androidx.test:core:${androidxTestCoreVersion}",
         androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
         robolectric:            "org.robolectric:robolectric:${robolectricVersion}",
-        mockito:                "org.mockito:mockito-core:${mockitoVersion}",
+        mockito:                "org.mockito:mockito-core:${mockitoVersion}"
     ]
 
     mobileDependencies = [
@@ -78,6 +78,10 @@ ext {
         constraintLayout:       "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
         lifeCycleExtensions:    "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
         lifeCycleCompiler:      "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
+        room:                   "androidx.room:room-runtime:${roomVersion}",
+        roomCompiler:           "androidx.room:room-compiler:${roomVersion}",
+        retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+        retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
         material:               "com.google.android.material:material:$materialVersion",
         dagger:                 "com.google.dagger:dagger:${daggerVersion}",
         daggerCompiler:         "com.google.dagger:dagger-compiler:${daggerVersion}",

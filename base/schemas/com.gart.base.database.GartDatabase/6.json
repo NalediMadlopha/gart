@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "8a5801d51aac9db6dd651e4aa2506776",
+    "version": 6,
+    "identityHash": "a63abce63e732cfaf52afeaeb3ae990c",
     "entities": [
       {
         "tableName": "item",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `description` TEXT NOT NULL, `forks_count` INTEGER NOT NULL, `full_name` TEXT NOT NULL, `git_url` TEXT NOT NULL, `language` TEXT NOT NULL, `name` TEXT NOT NULL, `open_issues_count` INTEGER NOT NULL, `stargazers_count` INTEGER NOT NULL, `updated_at` TEXT NOT NULL, `url` TEXT NOT NULL, `watchers_count` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `description` TEXT, `forks_count` INTEGER, `full_name` TEXT, `git_url` TEXT, `language` TEXT, `name` TEXT, `open_issues_count` INTEGER, `stargazers_count` INTEGER, `updated_at` TEXT, `url` TEXT, `watchers_count` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -18,67 +18,67 @@
             "fieldPath": "description",
             "columnName": "description",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "forks_count",
             "columnName": "forks_count",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "full_name",
             "columnName": "full_name",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "git_url",
             "columnName": "git_url",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "language",
             "columnName": "language",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
             "columnName": "name",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "open_issues_count",
             "columnName": "open_issues_count",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "stargazers_count",
             "columnName": "stargazers_count",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "updated_at",
             "columnName": "updated_at",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "url",
             "columnName": "url",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "watchers_count",
             "columnName": "watchers_count",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -93,7 +93,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8a5801d51aac9db6dd651e4aa2506776\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a63abce63e732cfaf52afeaeb3ae990c\")"
     ]
   }
 }
