@@ -14,6 +14,15 @@ interface GithubService {
 
     companion object {
         const val BASE_URL = "https://api.github.com/"
+
+        fun getInstance() : GithubService {
+            return Retrofit.Builder()
+                .baseUrl(GithubService.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(GithubService::class.java)
+        }
     }
+
 
 }
