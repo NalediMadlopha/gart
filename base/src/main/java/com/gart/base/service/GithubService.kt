@@ -1,7 +1,9 @@
 package com.gart.base.service
 
-import com.google.gson.JsonObject
+import org.json.JSONObject
 import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,7 +12,7 @@ interface GithubService {
 
     @GET("/search/repositories")
     fun searchRepositories(@Query("q") query: String, @Query("sort") sort: String,
-                           @Query("order") order: String): Call<JsonObject>
+                           @Query("order") order: String): Call<JSONObject>
 
     companion object {
         const val BASE_URL = "https://api.github.com/"
