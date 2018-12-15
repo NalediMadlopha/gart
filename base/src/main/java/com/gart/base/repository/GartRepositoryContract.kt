@@ -1,12 +1,18 @@
 package com.gart.base.repository
 
 import androidx.lifecycle.LiveData
-import com.gart.base.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepository
+import com.google.gson.JsonObject
+import retrofit2.Response
 
 interface GartRepositoryContract {
 
-    fun getGithubRepositories(): LiveData<List<GithubRepositoryItem>>
+    fun fetchGithubRepositories(): Response<JsonObject>?
 
-    fun getGithubRepository(repositoryId: Int): LiveData<GithubRepositoryItem>
+    fun getGithubRepositories(): LiveData<List<GithubRepository>>
+
+    fun getGithubRepository(repositoryId: Int): LiveData<GithubRepository>
+
+    fun saveGithubRepositories(githubRepositoryList: List<GithubRepository>)
 
 }

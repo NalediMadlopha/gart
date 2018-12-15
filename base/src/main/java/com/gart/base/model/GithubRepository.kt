@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "item")
-data class GithubRepositoryItem(
+data class GithubRepository(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
     @ColumnInfo(name = "description")
