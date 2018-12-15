@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gart.app.R
 import com.gart.app.details.RepositoryDetailsActivity
-import com.gart.base.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepository
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.repository_summary_details_layout.*
 
 
-class RepositoryListAdapter(private var githubRepositoryList: List<GithubRepositoryItem>): RecyclerView.Adapter<RepositoryListAdapter.RepositoryViewHolder>() {
+class RepositoryListAdapter(private var githubRepositoryList: List<GithubRepository>): RecyclerView.Adapter<RepositoryListAdapter.RepositoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -30,7 +30,7 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
 
     class RepositoryViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, View.OnClickListener {
 
-        fun bind(item: GithubRepositoryItem) {
+        fun bind(item: GithubRepository) {
             listItemRepositoryFullNameTextView.text = item.full_name
             listItemRepositoryDescriptionTextView.text = item.description
             listItemRepositoryLanguageTextView.text = item.language
