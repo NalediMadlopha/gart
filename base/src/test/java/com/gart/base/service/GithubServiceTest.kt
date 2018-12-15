@@ -1,9 +1,10 @@
 package com.gart.base.service
 
 import com.gart.base.repository.GartRepository
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import okhttp3.MediaType
 import okhttp3.ResponseBody
-import org.json.JSONObject
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -61,16 +62,18 @@ class GithubServiceTest {
     }
 
     class MockErrorGithubServiceCall(private val service: BehaviorDelegate<GithubService>) : GithubService {
-        override fun searchRepositories(query: String, sort: String, order: String): Call<JSONObject> {
-            val response = Response.error<JSONObject>(404, ResponseBody.create(MediaType.parse("application/json"), MockErrorResponse.data))
-            return service.returning(Calls.response(response))
+        override fun searchRepositories(query: String, sort: String, order: String): Call<JsonObject> {
+            val errorResponse = Response.error<JsonObject>(404, ResponseBody.create(MediaType.parse("application/json"), MockErrorResponse.data))
+            return service.returning(Calls.response(errorResponse))
                 .searchRepositories(query, sort, order)
         }
     }
 
     class MockSuccessGithubServiceCall(private val service: BehaviorDelegate<GithubService>) : GithubService {
-        override fun searchRepositories(query: String, sort: String, order: String): Call<JSONObject> {
-            return service.returningResponse(Response.success(JSONObject(MockSuccessResponse.data)))
+        override fun searchRepositories(query: String, sort: String, order: String): Call<JsonObject> {
+            val mockSuccessResponseJsonObject = JsonParser().parse(MockSuccessResponse.data).asJsonObject
+            val successResponse = Response.success(mockSuccessResponseJsonObject)
+            return service.returningResponse(Response.success(successResponse))
                 .searchRepositories(query, sort, order)
         }
     }
