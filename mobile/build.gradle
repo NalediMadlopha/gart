@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 androidExtensions {
     experimental = true
 }
@@ -72,12 +74,6 @@ dependencies {
     kapt mobileDependencies.lifeCycleCompiler
     implementation mobileDependencies.retrofit
     implementation mobileDependencies.retrofitConverter
-    implementation baseDependencies.room
-    kapt baseDependencies.roomCompiler
-    kapt mobileDependencies.dagger
-    kapt mobileDependencies.daggerCompiler
-    implementation mobileDependencies.daggerSupport
-    kapt mobileDependencies.daggerProcessor
 
     testImplementation mobileTestDependencies.junit
     testImplementation mobileTestDependencies.mockito

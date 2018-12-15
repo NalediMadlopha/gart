@@ -2,17 +2,15 @@ package com.gart.base.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import androidx.annotation.VisibleForTesting
 
-abstract class Utils {
+open class Utils @VisibleForTesting constructor() {
 
-    companion object {
+    fun isConnected(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
 
-        fun isConnected(context: Context): Boolean {
-            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = connectivityManager.activeNetworkInfo
-
-            return networkInfo != null && networkInfo.isConnectedOrConnecting
-        }
+        return networkInfo != null && networkInfo.isConnectedOrConnecting
     }
 
 }

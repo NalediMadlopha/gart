@@ -21,6 +21,8 @@ import org.robolectric.annotation.Config
 @Config(manifest= Config.NONE, sdk = [21])
 class UtilsTest {
 
+    private lateinit var utils: Utils
+
     @Spy
     private val spyContext: Context = Robolectric.buildActivity(Activity::class.java).get()
     @Mock
@@ -31,6 +33,8 @@ class UtilsTest {
     @Before
     fun setUp() {
         initMocks(this)
+
+        utils = Utils()
     }
 
     @Test
@@ -38,7 +42,7 @@ class UtilsTest {
         `when`(spyContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).thenReturn(mockConnectivityManager)
         `when`(mockConnectivityManager.activeNetworkInfo).thenReturn(null)
 
-        assertFalse(Utils.isConnected(spyContext))
+        assertFalse(utils.isConnected(spyContext))
     }
 
     @Test
@@ -47,7 +51,7 @@ class UtilsTest {
         `when`(mockConnectivityManager.activeNetworkInfo).thenReturn(mockNetworkInfo)
         `when`(mockNetworkInfo.isConnectedOrConnecting).thenReturn(false)
 
-        assertFalse(Utils.isConnected(spyContext))
+        assertFalse(utils.isConnected(spyContext))
     }
 
     @Test
@@ -56,7 +60,7 @@ class UtilsTest {
         `when`(mockConnectivityManager.activeNetworkInfo).thenReturn(mockNetworkInfo)
         `when`(mockNetworkInfo.isConnectedOrConnecting).thenReturn(true)
 
-        assertTrue(Utils.isConnected(spyContext))
+        assertTrue(utils.isConnected(spyContext))
     }
 
 }

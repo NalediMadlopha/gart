@@ -8,4 +8,8 @@
     <string name="repository_issues_label">ISSUES</string>
     <string name="repository_watchers_label">WATCHERS</string>
 
+    <string name="repository_successful_update_message">The repositories were updated successfully</string>
+    <string name="repository_not_found_error_message">No repositories found</string>
+    <string name="repository_network_error_message">Network error. Check your network connections and try again</string>
+
 </resources>

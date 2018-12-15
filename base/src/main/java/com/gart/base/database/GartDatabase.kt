@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.gart.base.model.GithubRepositoryItem
+import com.gart.base.model.GithubRepository
 
-@Database(entities = [(GithubRepositoryItem::class)], version = 6)
+@Database(entities = [(GithubRepository::class)], version = 6)
 abstract class GartDatabase : RoomDatabase() {
 
     abstract fun repositoryDao(): RepositoryDao
