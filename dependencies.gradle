@@ -32,6 +32,7 @@ ext {
     androidxTestRunnerVersion = '1.1.0'
     androidxJunitVersion = '1.0.0'
     mockitoVersion = '2.23.4'
+    retrofitMocVersion = '2.0.0'
     espressoVersion = '3.1.0'
     robolectricVersion = '4.0.2'
 
@@ -57,7 +58,9 @@ ext {
         androidxTestCore:       "androidx.test:core:${androidxTestCoreVersion}",
         androidxTestRunner:     "androidx.test:runner:${androidxTestRunnerVersion}",
         robolectric:            "org.robolectric:robolectric:${robolectricVersion}",
-        mockito:                "org.mockito:mockito-core:${mockitoVersion}"
+        mockito:                "org.mockito:mockito-core:${mockitoVersion}",
+        retrofitMock:            "com.squareup.retrofit2:retrofit-mock:${retrofitMocVersion}"
+
     ]
 
     componentsDependencies = [
@@ -87,9 +90,10 @@ ext {
         retrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
         material:               "com.google.android.material:material:$materialVersion",
         dagger:                 "com.google.dagger:dagger:${daggerVersion}",
+        daggerAndroid:          "com.google.dagger:dagger-android:${daggerSupportVersion}",
         daggerCompiler:         "com.google.dagger:dagger-compiler:${daggerVersion}",
-        daggerSupport:          "com.google.dagger:dagger-android-support:${daggerVersion}",
-        daggerProcessor:        "com.google.dagger:dagger-android-processor:${daggerVersion}"
+        daggerSupport:          "com.google.dagger:dagger-android-support:${daggerSupportVersion}",
+        daggerProcessor:        "com.google.dagger:dagger-android-processor:${daggerSupportVersion}"
     ]
 
     mobileTestDependencies = [

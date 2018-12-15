@@ -68,4 +68,5 @@ dependencies {
     testImplementation baseTestDependencies.junit
     testImplementation baseTestDependencies.robolectric
     testImplementation baseTestDependencies.mockito
+    testImplementation baseTestDependencies.retrofitMock
 }
