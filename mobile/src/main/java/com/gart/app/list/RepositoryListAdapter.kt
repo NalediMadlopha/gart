@@ -1,6 +1,7 @@
 package com.gart.app.list
 
 import android.content.Intent
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +34,13 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
         fun bind(item: GithubRepository) {
             listItemRepositoryFullNameTextView.text = item.full_name
             listItemRepositoryDescriptionTextView.text = item.description
-            listItemRepositoryLanguageTextView.text = item.language
+
+            if (!TextUtils.isEmpty(item.language)) {
+                listItemRepositoryLanguageTextView.text = item.language
+            } else {
+                listItemRepositoryLanguageTextView.visibility = View.GONE
+            }
+
             listItemRepositoryLastUpdateTextView.text = item.updated_at
             listItemRepositoryStarGazersTextView.text = item.stargazers_count.toString()
 
