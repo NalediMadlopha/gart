@@ -16,7 +16,6 @@ import okhttp3.ResponseBody
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentMatchers.anyList
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
@@ -90,38 +89,6 @@ class RepositoryListViewModelTest {
         viewModel.fetchGithubRepositories()
 
         verify(mockGartRepository).fetchGithubRepositories()
-    }
-
-    @Test
-    fun fetchGithubRepositories_should_displayLocalRepositories_if_there_is_no_internet_connection() {
-        `when`(mockUtils.isConnected(spyContext)).thenReturn(false)
-
-        viewModel.fetchGithubRepositories()
-
-        verify(mockViewContract).displayLocalRepositories()
-    }
-
-    @Test
-    fun fetchGithubRepositories_should_save_the_repositories_in_the_database() {
-        viewModel.fetchGithubRepositories()
-
-        verify(mockGartRepository).saveGithubRepositories(githubRepositoryList = anyList())
-    }
-
-    @Test
-    fun fetchGithubRepositories_should_display_an_update_view_notification() {
-        viewModel.fetchGithubRepositories()
-
-        verify(mockViewContract).update()
-    }
-
-    @Test
-    fun fetchGithubRepositories_should_display_an_update_error_view_notification() {
-        `when`(mockGartRepository.fetchGithubRepositories()).thenReturn(errorResponse)
-
-        viewModel.fetchGithubRepositories()
-
-        verify(mockViewContract).displayUpdateErrorNotification()
     }
 
 }
