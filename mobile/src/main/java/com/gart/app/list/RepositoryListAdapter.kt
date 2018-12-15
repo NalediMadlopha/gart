@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gart.app.R
 import com.gart.app.details.RepositoryDetailsActivity
 import com.gart.base.model.GithubRepository
+import com.gart.base.utils.Utils
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.repository_summary_details_layout.*
 
@@ -42,9 +43,9 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
             }
 
             listItemRepositoryLastUpdateTextView.text = item.updated_at
-            listItemRepositoryStarGazersTextView.text = item.stargazers_count.toString()
+            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count!!.toDouble(), 0)
 
-            containerView.setOnClickListener(this);
+            containerView.setOnClickListener(this)
         }
 
         override fun onClick(view: View) {
