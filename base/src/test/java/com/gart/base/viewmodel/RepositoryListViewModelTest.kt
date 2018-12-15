@@ -84,11 +84,4 @@ class RepositoryListViewModelTest {
         verify(mockGartRepository).getGithubRepository(repositoryId)
     }
 
-    @Test
-    fun fetchGithubRepositories_should_fetchRemoteRepositories_if_there_is_internet_connection() {
-        viewModel.fetchGithubRepositories()
-
-        verify(mockGartRepository).fetchGithubRepositories()
-    }
-
 }
