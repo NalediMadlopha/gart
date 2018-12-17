@@ -43,7 +43,7 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
             }
 
             listItemRepositoryLastUpdateTextView.text = item.updated_at
-            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count!!.toDouble(), 0)
+            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count?.toDouble(), 0)
 
             containerView.setOnClickListener(this)
         }
