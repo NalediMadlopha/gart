@@ -3,7 +3,7 @@ package com.gart.base.utils
 import android.content.Context
 import android.net.ConnectivityManager
 
-open class Utils constructor() {
+open class Utils {
 
     private val suffix = charArrayOf('k', 'm', 'b', 't')
 
@@ -15,18 +15,17 @@ open class Utils constructor() {
     }
 
     fun numberSuffixConverter(valueToConvert: Double?, iteration: Int): String {
-        val d = valueToConvert!!.toLong() / 100 / 10.0
-        val isRound = d * 10 % 10 == 0.0
+        val convertedValue = (valueToConvert?.toLong() ?: 0) / 100 / 10.0
+        val isRound = convertedValue * 10 % 10 == 0.0
 
-        return (if (d < 1000) {
-            ((if (d > 99.9 || isRound || (!isRound && d > 9.99)) {
-                d.toInt().times(10) / 10
+        return (if (convertedValue < 1000) {
+            ((if (convertedValue > 99.9 || isRound || (!isRound && convertedValue > 9.99)) {
+                convertedValue.toInt().times(10) / 10
             } else {
-                (d).toString().plus("")
+                (convertedValue).toString().plus("")
             })).toString() + "" + suffix[iteration]
         } else
-            numberSuffixConverter(d, iteration + 1))
-
+            numberSuffixConverter(convertedValue, iteration + 1))
     }
 
 }
