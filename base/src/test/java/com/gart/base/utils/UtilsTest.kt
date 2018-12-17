@@ -39,7 +39,7 @@ class UtilsTest {
 
     @Test
     fun isConnected_should_return_false_if_networkInfo_is_null() {
-        `when`(spyContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).thenReturn(mockConnectivityManager)
+        `when`(spyContext.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager).thenReturn(mockConnectivityManager)
         `when`(mockConnectivityManager.activeNetworkInfo).thenReturn(null)
 
         assertFalse(utils.isConnected(spyContext))
@@ -47,7 +47,7 @@ class UtilsTest {
 
     @Test
     fun isConnected_should_return_false_if_networkInfo_isConnectedOrConnecting_returns_false() {
-        `when`(spyContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).thenReturn(mockConnectivityManager)
+        `when`(spyContext.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager).thenReturn(mockConnectivityManager)
         `when`(mockConnectivityManager.activeNetworkInfo).thenReturn(mockNetworkInfo)
         `when`(mockNetworkInfo.isConnectedOrConnecting).thenReturn(false)
 
@@ -56,7 +56,7 @@ class UtilsTest {
 
     @Test
     fun isConnected_should_return_true_if_networkInfo_is_not_null_and_isConnectedOrConnecting_returns_true() {
-        `when`(spyContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).thenReturn(mockConnectivityManager)
+        `when`(spyContext.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager).thenReturn(mockConnectivityManager)
         `when`(mockConnectivityManager.activeNetworkInfo).thenReturn(mockNetworkInfo)
         `when`(mockNetworkInfo.isConnectedOrConnecting).thenReturn(true)
 

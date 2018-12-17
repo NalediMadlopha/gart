@@ -71,7 +71,7 @@ class RepositoryListFragment : Fragment(), RepositoryListViewContract, SwipeRefr
 
     override fun update() {
         Snackbar.make(rootView, getString(R.string.repository_successful_update_message), Snackbar.LENGTH_LONG).apply {
-            this.view.setBackgroundColor(ContextCompat.getColor(context!!, R.color.green))
+            this.view.setBackgroundColor(ContextCompat.getColor(context, R.color.green))
             this.show()
         }
         rootView.repositoryListSwipeRefreshLayout.isRefreshing = false

@@ -8,8 +8,8 @@ open class Utils constructor() {
     private val suffix = charArrayOf('k', 'm', 'b', 't')
 
     fun isConnected(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfo = connectivityManager.activeNetworkInfo
+        val connectivityManager = (context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager)
+        val networkInfo = connectivityManager?.activeNetworkInfo
 
         return networkInfo != null && networkInfo.isConnectedOrConnecting
     }
