@@ -12,4 +12,6 @@
     <string name="repository_not_found_error_message">No repositories found</string>
     <string name="repository_network_error_message">Network error. Check your network connections and try again</string>
 
+    <string name="repository_last_update_text">Updated %1$s </string>
+
 </resources>

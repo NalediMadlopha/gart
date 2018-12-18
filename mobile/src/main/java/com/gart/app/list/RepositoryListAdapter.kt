@@ -33,19 +33,23 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
     class RepositoryViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, View.OnClickListener {
 
         fun bind(item: GithubRepository) {
+            val elapsedTime = Utils().elapseTime(item.updated_at!!).toString().toLowerCase()
+
             listItemRepositoryFullNameTextView.text = item.full_name
             listItemRepositoryDescriptionTextView.text = item.description
+            listItemRepositoryLastUpdateTextView.text = containerView.context.getString(R.string.repository_last_update_text, elapsedTime)
+            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count?.toDouble(), 0)
 
+            setupLanguageTextView(item)
+            containerView.setOnClickListener(this)
+        }
+
+        private fun setupLanguageTextView(item: GithubRepository) {
             if (!TextUtils.isEmpty(item.language)) {
                 listItemRepositoryLanguageTextView.text = item.language
             } else {
                 listItemRepositoryLanguageTextView.visibility = View.GONE
             }
-
-            listItemRepositoryLastUpdateTextView.text = item.updated_at
-            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count?.toDouble(), 0)
-
-            containerView.setOnClickListener(this)
         }
 
         override fun onClick(view: View) {
