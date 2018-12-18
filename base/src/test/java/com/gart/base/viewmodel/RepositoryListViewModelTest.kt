@@ -65,7 +65,6 @@ class RepositoryListViewModelTest {
         `when`(mockGartRepository.fetchGithubRepositories()).thenReturn(successResponse)
 
         viewModel = RepositoryListViewModel(mockApplication, mockViewContract, mockGartRepository, mockUtils)
-
     }
 
     @Test
@@ -73,15 +72,6 @@ class RepositoryListViewModelTest {
         viewModel.getGithubRepositories()
 
         verify(mockGartRepository).getGithubRepositories()
-    }
-
-    @Test
-    fun getGithubRepository_when_the_viewModel_getGithubRepository_is_invoked() {
-        val repositoryId = 1
-
-        viewModel.getGithubRepository(repositoryId)
-
-        verify(mockGartRepository).getGithubRepository(repositoryId)
     }
 
 }

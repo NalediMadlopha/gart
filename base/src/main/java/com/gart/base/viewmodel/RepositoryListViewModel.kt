@@ -1,6 +1,5 @@
 package com.gart.base.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.os.AsyncTask
 import androidx.annotation.VisibleForTesting
@@ -23,15 +22,10 @@ class RepositoryListViewModel
     private val utils: Utils
 ) : AndroidViewModel(app) {
 
-    @SuppressLint("VisibleForTests")
-    constructor(view: RepositoryListViewContract, app: Application) : this(app, view, GartRepository(app), Utils())
+    constructor(app: Application, view: RepositoryListViewContract) : this(app, view, GartRepository(app), Utils())
 
     fun getGithubRepositories(): LiveData<List<GithubRepository>> {
         return repository.getGithubRepositories()
-    }
-
-    fun getGithubRepository(repositoryId: Int) : LiveData<GithubRepository> {
-        return repository.getGithubRepository(repositoryId)
     }
 
     fun fetchGithubRepositories() {
