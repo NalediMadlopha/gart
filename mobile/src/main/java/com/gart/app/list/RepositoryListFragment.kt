@@ -30,7 +30,7 @@ class RepositoryListFragment : Fragment(), RepositoryListViewContract, SwipeRefr
 
         viewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory { RepositoryListViewModel(this, this.activity!!.application) }
+            ViewModelFactory { RepositoryListViewModel(this.activity!!.application, this) }
         ).get(RepositoryListViewModel::class.java)
     }
 

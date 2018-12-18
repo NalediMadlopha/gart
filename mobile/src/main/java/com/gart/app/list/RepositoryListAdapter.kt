@@ -32,16 +32,26 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
 
     class RepositoryViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, View.OnClickListener {
 
-        fun bind(item: GithubRepository) {
-            val elapsedTime = Utils().elapseTime(item.updated_at!!).toString().toLowerCase()
+        private lateinit var githubRepository: GithubRepository
 
-            listItemRepositoryFullNameTextView.text = item.full_name
-            listItemRepositoryDescriptionTextView.text = item.description
+        fun bind(githubRepository: GithubRepository) {
+            this.githubRepository = githubRepository
+            val elapsedTime = Utils().elapseTime(githubRepository.updated_at!!).toString().toLowerCase()
+
+            listItemRepositoryFullNameTextView.text = githubRepository.full_name
+            listItemRepositoryDescriptionTextView.text = githubRepository.description
             listItemRepositoryLastUpdateTextView.text = containerView.context.getString(R.string.repository_last_update_text, elapsedTime)
-            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count?.toDouble(), 0)
+            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(githubRepository.stargazers_count?.toDouble(), 0)
 
-            setupLanguageTextView(item)
+            setupLanguageTextView(githubRepository)
             containerView.setOnClickListener(this)
+        }
+
+        override fun onClick(view: View) {
+            val context = view.context
+            val intent = Intent(context, RepositoryDetailsActivity::class.java)
+            intent.putExtra(SELECTED_GITHUB_REPOSITORY_ID, this.githubRepository.id)
+            context.startActivity(intent)
         }
 
         private fun setupLanguageTextView(item: GithubRepository) {
@@ -51,18 +61,13 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
                 listItemRepositoryLanguageTextView.visibility = View.GONE
             }
 
-            listItemRepositoryLastUpdateTextView.text = item.updated_at
-            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count?.toDouble(), 0)
-
             containerView.setOnClickListener(this)
         }
 
-        override fun onClick(view: View) {
-            val context = view.getContext()
-
-            val intent = Intent(context, RepositoryDetailsActivity::class.java)
-            context.startActivity(intent)
-        }
-
     }
+
+    companion object {
+        const val SELECTED_GITHUB_REPOSITORY_ID = "selected_github_repository_id"
+    }
+
 }
