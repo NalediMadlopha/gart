@@ -2,6 +2,9 @@ package com.gart.base.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.text.format.DateUtils
+import java.text.SimpleDateFormat
+import java.util.*
 
 open class Utils {
 
@@ -12,6 +15,15 @@ open class Utils {
         val networkInfo = connectivityManager?.activeNetworkInfo
 
         return networkInfo != null && networkInfo.isConnectedOrConnecting
+    }
+
+    fun elapseTime(dateString: String): CharSequence {
+        val simpleDateFormat = SimpleDateFormat(DATE_FORMAT)
+        simpleDateFormat.timeZone = TimeZone.getTimeZone(TIME_ZONE)
+
+        val now = simpleDateFormat.parse(dateString)
+
+        return DateUtils.getRelativeTimeSpanString(now.time)
     }
 
     fun numberSuffixConverter(valueToConvert: Double?, iteration: Int): String {
@@ -26,6 +38,11 @@ open class Utils {
             })).toString() + "" + suffix[iteration]
         } else
             numberSuffixConverter(convertedValue, iteration + 1))
+    }
+
+    companion object {
+        private const val DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        private const val TIME_ZONE = "UTC"
     }
 
 }
