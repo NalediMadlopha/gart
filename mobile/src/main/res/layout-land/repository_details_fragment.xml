@@ -14,45 +14,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/repository_details_statistics_margin_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsRepositorySummaryDetailsLayout"
         app:bottom_label="@string/repository_stars_label"
-        tools:top_label="2201"/>
+        tools:top_label="2201" />
 
     <com.gart.common.widgets.LabelValueWidget
         android:id="@+id/detailsRepositoryForksLabelValueWidget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="@dimen/repository_details_fork_margin_start"
+        android:layout_marginTop="@dimen/repository_details_statistics_margin_top"
         app:layout_constraintTop_toBottomOf="@+id/detailsRepositorySummaryDetailsLayout"
         app:layout_constraintStart_toEndOf="@+id/detailsRepositoryStarsLabelValueWidget"
         app:bottom_label="@string/repository_forks_label"
-        tools:top_label="401"/>
+        tools:top_label="401" />
 
     <com.gart.common.widgets.LabelValueWidget
         android:id="@+id/detailsRepositoryIssuesLabelValueWidget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="@dimen/repository_details_issues_statistics_margin_start"
+        android:layout_marginTop="@dimen/repository_details_statistics_margin_top"
         app:layout_constraintTop_toBottomOf="@+id/detailsRepositorySummaryDetailsLayout"
         app:layout_constraintStart_toEndOf="@+id/detailsRepositoryForksLabelValueWidget"
         app:bottom_label="@string/repository_issues_label"
-        tools:top_label="9"/>
+        tools:top_label="9" />
 
     <com.gart.common.widgets.LabelValueWidget
         android:id="@+id/detailsRepositoryWatchersLabelValueWidget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/repository_details_statistics_margin_top"
         android:layout_marginEnd="@dimen/default_16dp"
         app:layout_constraintTop_toBottomOf="@+id/detailsRepositorySummaryDetailsLayout"
         app:layout_constraintStart_toEndOf="@+id/detailsRepositoryIssuesLabelValueWidget"
         app:layout_constraintEnd_toEndOf="parent"
         app:bottom_label="@string/repository_watchers_label"
-        tools:top_label="324" app:layout_constraintHorizontal_bias="1.0"/>
+        app:layout_constraintHorizontal_bias="1.0"
+        tools:top_label="324" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
