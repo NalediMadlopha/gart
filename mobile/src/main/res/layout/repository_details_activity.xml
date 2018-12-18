@@ -7,7 +7,7 @@
     tools:context=".details.RepositoryDetailsFragment">
 
     <include android:id="@+id/appBarLayout"
-        layout="@layout/app_bar_layout"/>
+        layout="@layout/app_bar_layout" />
 
     <FrameLayout
         android:id="@+id/repositoryListFragment"
