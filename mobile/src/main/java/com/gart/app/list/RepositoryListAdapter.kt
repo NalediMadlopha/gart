@@ -50,6 +50,11 @@ class RepositoryListAdapter(private var githubRepositoryList: List<GithubReposit
             } else {
                 listItemRepositoryLanguageTextView.visibility = View.GONE
             }
+
+            listItemRepositoryLastUpdateTextView.text = item.updated_at
+            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(item.stargazers_count?.toDouble(), 0)
+
+            containerView.setOnClickListener(this)
         }
 
         override fun onClick(view: View) {

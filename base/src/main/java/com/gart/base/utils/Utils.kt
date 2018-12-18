@@ -6,14 +6,13 @@ import android.text.format.DateUtils
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 open class Utils {
 
     private val suffix = charArrayOf('k', 'm', 'b', 't')
 
     fun isConnected(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfo = connectivityManager.activeNetworkInfo
+        val connectivityManager = (context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager)
+        val networkInfo = connectivityManager?.activeNetworkInfo
 
         return networkInfo != null && networkInfo.isConnectedOrConnecting
     }
