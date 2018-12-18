@@ -16,7 +16,6 @@ import com.gart.base.utils.Utils
 import com.gart.base.viewmodel.RepositoryDetailsViewModel
 import com.gart.base.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.repository_details_fragment.*
-import kotlinx.android.synthetic.main.repository_summary_details_layout.*
 
 class RepositoryDetailsFragment : Fragment() {
 
@@ -61,7 +60,6 @@ class RepositoryDetailsFragment : Fragment() {
             listItemRepositoryFullNameTextView.text = it.full_name
             listItemRepositoryDescriptionTextView.text = it.description
             listItemRepositoryLastUpdateTextView.text = rootView.context.getString(R.string.repository_last_update_text, elapsedTime)
-            listItemRepositoryStarGazersTextView.text = Utils().numberSuffixConverter(it.stargazers_count?.toDouble(), 0)
 
             detailsRepositoryStarsLabelValueWidget.setTopText(it.stargazers_count.toString())
             detailsRepositoryForksLabelValueWidget.setTopText(it.forks_count.toString())

@@ -11,7 +11,7 @@ import com.gart.app.details.RepositoryDetailsActivity
 import com.gart.base.model.GithubRepository
 import com.gart.base.utils.Utils
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.repository_summary_details_layout.*
+import kotlinx.android.synthetic.main.repository_list_item.*
 
 
 class RepositoryListAdapter(private var githubRepositoryList: List<GithubRepository>): RecyclerView.Adapter<RepositoryListAdapter.RepositoryViewHolder>() {

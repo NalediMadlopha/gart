@@ -12,6 +12,12 @@
         <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Medium</item>
     </style>
 
+    <style name="TabletHeadingTextStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Large</item>
+        <item name="android:textSize">@dimen/default_30sp</item>
+    </style>
+
     <style name="SmallTextStyle">
         <item name="android:height">@dimen/default_32dp</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
